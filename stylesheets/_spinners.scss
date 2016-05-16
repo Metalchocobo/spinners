@@ -98,7 +98,8 @@ Pass any number of seconds referring to the duration of one full rotation for an
   
   // Parse arguments:
   @if $args {
-    @each $arg in $args {
+    @for $i from 1 through length($args) {
+      $arg: nth($args, $i);
       @if length($arg) == 1 {
         @if type-of($arg) == number {
           @if unit($arg) != "" {
